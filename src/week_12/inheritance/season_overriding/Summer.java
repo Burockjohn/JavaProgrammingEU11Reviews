@@ -1,4 +1,4 @@
-package week_12.inheritance.season;
+package week_12.inheritance.season_overriding;
 
 public class Summer extends Season {
     public Summer(double highAvgTemp, double lowAvgTemp) {
