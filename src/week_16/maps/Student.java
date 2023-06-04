@@ -1,4 +1,4 @@
-package week_16;
+package week_16.maps;
 
 public class Student {
 
