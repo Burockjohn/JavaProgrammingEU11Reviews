@@ -1,8 +1,9 @@
 package week_16.functional_interfaces;
 
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.*;
 
 public class FunctionalInterfaceExamples {
 
@@ -42,6 +43,25 @@ public class FunctionalInterfaceExamples {
 
         Function<String, String> returnReversed = k -> new StringBuilder(k).reverse().toString();
         System.out.println(returnReversed.apply("Burak"));
+
+        BiPredicate<String, String> isEqual = (k, v) -> k.equals(v); // String::equals
+        System.out.println(isEqual.test("Burak", "burak"));
+
+        BiConsumer<Integer, Integer> multiply = (k, v) -> System.out.println(k * v);
+        multiply.accept(8, 8);
+
+        Integer[] arr1 = {1, 2, 3};
+        Integer[] arr2 = {4, 5, 6};
+
+        BiFunction<Integer[], Integer[], List<Integer>> mergeArrayInAList = (a1, a2) -> {
+            List<Integer> list = new ArrayList<>(Arrays.asList(a1));
+            for (Integer a : a2) {
+                list.add(a);
+            }
+            return list;
+        };
+
+        System.out.println(mergeArrayInAList.apply(arr1, arr2));
 
 
     }
